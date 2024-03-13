@@ -695,6 +695,8 @@ int main()
 };
 ```
 
+</details>
+
 **Static**
 
 -   Biến cục bộ là biến tồn tại trong các hàm :Hàm main() , hàm con.Biến cục bộ sẽ được lưu vào vùng nhớ stack, thu hồi khi kết thúc hàm.
@@ -734,9 +736,7 @@ int main()
 -   Biến toàn cục static sẽ chỉ có thể được truy cập và sử dụng trong File khai báo nó, các File khác không có cách nào truy cập được.Nghĩa là `extern` không dùng được
 -   Ví dụ:globalStaticVar được khai báo là static và nằm trong file "File1.c". Do đó, bạn không thể trực tiếp truy cập nó từ file "File2.c", bằng extern int globalStaticVar; trong File2.c, chương trình sẽ không biên dịch được và thông báo lỗi.
 
- </details>
-
-**Biến register:**
+**Register:**
 
 -   Từ khóa register được dùng để khai báo các biến có tính chất như biến cục bộ nhưng mà nó được lưu trong thanh ghi của CPU. Do nó được lưu trong thanh ghi nên tốc độ xử lý sẽ nhanh hơn so với các biến được lưu trong Ram.
     `register int counter = 0;`
@@ -747,7 +747,9 @@ int main()
     -   B2:Sau đó chuyển từ Ram qua thanh ghi(register)
     -   B3:Từ register chuyển qua ALU (Arithmetic Logic Unit) ,để tính toán.Sau khi tính toán xong thì lại chuyển ngược về register>> về RAM
 
-**Biến volatile:** Thông báo cho trình biên dịch rằng giá trị của biến này không tối ưu , nếu tối ưu thì sẽ không đúng kết quả của người code.
+**Volatile:**
+
+-   Từ khóa "Volatile" sẽ thông báo cho trình biên dịch rằng giá trị của biến này không được thực hiện tối ưu , nếu việc tối ưu thì sẽ dẫn đến không đúng về kết quả của người code.
 
 -   Sử dụng volatile với biến có giá trị thay đổi từ bên ngoài , liên tục và giống nhau.Nếu không có volatile, compiler sẽ hiểu rằng các biến như vậy dường như không thay đổi giá trị nên compiler có xu hướng loại bỏ để có thể tối ưu kích cỡ file code .
 -   Ví dụ:
@@ -775,7 +777,7 @@ int main()
 
 **Goto:**
 
--   goto là một từ khóa trong ngôn ngữ lập trình C, cho phép chương trình nhảy đến một nhãn (label) đã được đặt trước đó trong cùng một hàm.
+-   goto là một từ khóa trong ngôn ngữ lập trình C, cho phép chương trình nhảy đến một nhãn (label) đã được đặt sẵn trước đó trong cùng một hàm.
 
  <details>
 <summary>Ví dụ</summary>
