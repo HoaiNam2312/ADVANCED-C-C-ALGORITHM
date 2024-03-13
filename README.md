@@ -1,5 +1,5 @@
 <details>
-  <summary><h3>▶ C Advance </h3></summary>
+  <summary><h3>Tài liệu C</h3></summary>
 
 <details>
   <summary><h3>Quá trình biên dịch</h3></summary>
@@ -656,46 +656,9 @@ int main() {
 
 </details>
 <details>
-  <summary><h3>Từ khóa đặc biệt trong C </h3></summary>
+  <summary><h3>Extern - Static - Volatile - Register</h3></summary>
 
--   Biến cục bộ là biến tồn tại trong các hàm :Hàm main() , hàm con.Biến cục bộ sẽ được lưu vào vùng nhớ stack, thu hồi khi kết thúc hàm.
--   Biến toàn cục là các biến được khai báo ở bên ngoài tất cả các hàm , Biến toàn cục tồn tại cho tới khi chương trình kết thúc.
-
-### Khác nhau của static cục bộ và static toàn cục:
-
-**Biến static cục bộ:**
-
--   Khi 1 biến cục bộ được khai báo với từ khóa static. Biến sẽ chỉ được khởi tạo 1 lần duy nhất và tồn tại suốt thời gian chạy chương trình.
--   Giá trị của nó không bị mất đi ngay cả khi kết thúc hàm
--   Biến static sẽ lưu vào vùng nhớ Data/ Bss, được giải phóng khi kết thúc chương trình.
-
--   Ví dụ:
-
-```C
-		#include <stdio.h>
-		void printMessage() {
-		static int count = 0;
-		// Tăng giá trị biến mỗi lần hàm được gọi
-		count++;
-		printf("Count: %d\n", count);
-		}
-
-		int main() {
-		// Gọi hàm có sử dụng biến static
-		printMessage();//
-		printMessage();
-
-		return 0;
-		}// KQ:Count: 1,Count: 2
-
-```
-
-**Biến static toàn cục:**
-
--   Biến toàn cục static sẽ chỉ có thể được truy cập và sử dụng trong File khai báo nó, các File khác không có cách nào truy cập được.Nghĩa là `extern` không dùng được
--   Ví dụ:globalStaticVar được khai báo là static và nằm trong file "File1.c". Do đó, bạn không thể trực tiếp truy cập nó từ file "File2.c", bằng extern int globalStaticVar; trong File2.c, chương trình sẽ không biên dịch được và thông báo lỗi.
-
-**Biến Extern:**
+**Extern:**
 
 -   Trong C, khi 1 biến đi sau từ khóa “extern” có nghĩa:
 -   Từ khóa extern được sử dụng để khai báo một biến,hàm mà đã được định nghĩa bên ngoài chương trình hoặc tệp tin.
@@ -731,6 +694,45 @@ int main()
   return 0;
 };
 ```
+
+**Static**
+
+-   Biến cục bộ là biến tồn tại trong các hàm :Hàm main() , hàm con.Biến cục bộ sẽ được lưu vào vùng nhớ stack, thu hồi khi kết thúc hàm.
+-   Biến toàn cục là các biến được khai báo ở bên ngoài tất cả các hàm , Biến toàn cục tồn tại cho tới khi chương trình kết thúc.
+
+### Khác nhau của static cục bộ và static toàn cục:
+
+**_Biến static cục bộ:_**
+
+-   Khi 1 biến cục bộ được khai báo với từ khóa static. Biến sẽ chỉ được khởi tạo 1 lần duy nhất và tồn tại suốt thời gian chạy chương trình.
+-   Giá trị của nó không bị mất đi ngay cả khi kết thúc hàm
+-   Biến static sẽ lưu vào vùng nhớ Data/ Bss, được giải phóng khi kết thúc chương trình.
+
+-   Ví dụ:
+
+```
+		#include <stdio.h>
+		void printMessage() {
+		static int count = 0;
+		// Tăng giá trị biến mỗi lần hàm được gọi
+		count++;
+		printf("Count: %d\n", count);
+		}
+
+		int main() {
+		// Gọi hàm có sử dụng biến static
+		printMessage();//
+		printMessage();
+
+		return 0;
+		}// KQ:Count: 1,Count: 2
+
+```
+
+**_Biến static toàn cục:_**
+
+-   Biến toàn cục static sẽ chỉ có thể được truy cập và sử dụng trong File khai báo nó, các File khác không có cách nào truy cập được.Nghĩa là `extern` không dùng được
+-   Ví dụ:globalStaticVar được khai báo là static và nằm trong file "File1.c". Do đó, bạn không thể trực tiếp truy cập nó từ file "File2.c", bằng extern int globalStaticVar; trong File2.c, chương trình sẽ không biên dịch được và thông báo lỗi.
 
  </details>
 
